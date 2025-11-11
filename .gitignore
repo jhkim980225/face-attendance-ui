@@ -1,0 +1,70 @@
+# ── 로그 ─────────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# npm pack 결과물 (가끔 실수로 생김)
+*.tgz
+
+# ── 의존성/빌드 산출물 ─────────────────────────────────────────
+node_modules/
+dist/
+dist-ssr/
+build/                  # CRA
+.out/                   # 일부 빌드 스크립트에서 생성 가능
+
+# ── 툴 캐시(빌드 빠르게) ────────────────────────────────────────
+.vite/                  # Vite 캐시
+.vite-inspect/          # vite-plugin-inspect
+.parcel-cache/          # Parcel
+.next/                  # Next.js를 일부 사용한다면
+.nuxt/                  # Nuxt(혼용시)
+.cache/                 # 공용 캐시 디렉토리
+.eslintcache
+.stylelintcache
+.turbo/                 # Turborepo
+
+# ── 환경설정(개발자 로컬 전용) ─────────────────────────────────
+*.local
+.env
+.env.*                  # .env.development, .env.production 등
+!.env.example           # 샘플은 추적 유지(권장)
+
+# ── 테스트/스토리북/커버리지 ───────────────────────────────────
+coverage/
+.storybook-out/
+storybook-static/
+.cypress/
+playwright-report/
+test-results/
+
+# ── 에디터/IDE ─────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json  # 팀 규칙 공유 시 허용(선택)
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── OS 잡파일 ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── 배포 플랫폼(옵션) ──────────────────────────────────────────
+.vercel/
+.netlify/
+
+# ── 보안/인증서(실수 업로드 방지) ───────────────────────────────
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.jks
