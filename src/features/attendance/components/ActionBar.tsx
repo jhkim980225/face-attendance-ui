@@ -1,6 +1,7 @@
 import { Button } from '@/components/Button';
 import { AttendanceType } from '../store/attendanceStore';
 
+// 
 interface ActionBarProps {
   onAttendance: (type: AttendanceType) => void;
   disabled: boolean;
@@ -12,7 +13,7 @@ export const ActionBar = ({ onAttendance, disabled }: ActionBarProps) => {
       {/* Main attendance buttons */}
       <div className="flex gap-4 justify-center">
         <Button
-          variant="success"
+          variant="primary"
           size="lg"
           onClick={() => onAttendance('IN')}
           disabled={disabled}

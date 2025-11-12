@@ -8,13 +8,11 @@ import { useAttendanceStore, AttendanceType } from '../store/attendanceStore';
 import { attendanceApi } from '../api/attendanceApi';
 import { handleApiError } from '@/utils/error';
 import { formatTime } from '@/utils/time';
-import { getApiBaseUrl } from '@/utils/env';
 
 export const AttendancePage = () => {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState('');
   const [healthStatus, setHealthStatus] = useState<'online' | 'offline' | 'warning'>('offline');
-  const [backendHost, setBackendHost] = useState('');
   
   const { inProgress, lastResult, setInProgress, setLastResult, clearResult, setCountdown } = useAttendanceStore();
 
@@ -58,14 +56,14 @@ export const AttendancePage = () => {
     return base64.split(',')[1];
   };
 
-  // Update current time every second
+  // 현재 시간 업데이트
   useEffect(() => {
     const updateTime = () => {
       setCurrentTime(formatTime());
     };
     updateTime();
     const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // 타이머 정리
   }, []);
 
   // Health check polling
@@ -79,15 +77,15 @@ export const AttendancePage = () => {
       }
     };
 
-    setBackendHost(getApiBaseUrl());
     checkHealth();
     const interval = setInterval(checkHealth, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  /* 출.퇴근 처리 핸들러 */
   const handleAttendance = async (type: AttendanceType) => {
     setInProgress(true);
-    setCountdown(0); // 3초 → 0초 (즉시 캡처)
+    setCountdown(0); // (캡처 시간)
 
     // Countdown animation
     const countdownPromise = new Promise<void>((resolve) => {
@@ -151,7 +149,6 @@ export const AttendancePage = () => {
             <span className="text-sm text-gray-400">
               {healthStatus === 'online' ? '연결됨' : healthStatus === 'warning' ? '불안정' : '오프라인'}
             </span>
-            <span className="text-xs text-gray-500 ml-2">{backendHost}</span>
           </div>
           
           <button
