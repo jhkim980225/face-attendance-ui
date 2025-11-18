@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { AttendanceType } from '../store/attendanceStore';
 
-// 
+// 출근 퇴근 QR스캔 사번 도움말 버튼 바
 interface ActionBarProps {
   onAttendance: (type: AttendanceType) => void;
   disabled: boolean;

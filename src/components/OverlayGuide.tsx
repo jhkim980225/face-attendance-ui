@@ -8,14 +8,14 @@ export const OverlayGuide = () => {
           style={{
             width: '170px',
             height: '220px',
-            boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.5)',
+            boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.8)',
           }}
         />
         
         {/* Top guide text */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 text-white text-sm font-semibold bg-black/60 px-4 py-2 rounded-lg z-10">
+        {/* <div className="absolute top-8 left-1/2 -translate-x-1/2 text-white text-sm font-semibold bg-black/60 px-4 py-2 rounded-lg z-10">
           얼굴을 타원 안에 맞춰주세요
-        </div>
+        </div> */}
       </div>    
     </div>    
   );
