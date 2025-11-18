@@ -101,7 +101,8 @@ export const AttendancePage = () => {
       
       // 
       const response = await attendanceApi.identify({ type, image });
-      console.log("<< 출근 버튼 클릭 - identify 응답 >>", response);
+      console.log("<< 버튼 클릭 - identify 응답 >>", response);
+      
       const result = {
         success: response.success,
         type,

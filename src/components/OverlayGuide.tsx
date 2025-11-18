@@ -6,8 +6,8 @@ export const OverlayGuide = () => {
         <div 
           className="absolute border-4 border-green-500 rounded-full"
           style={{
-            width: '200px',
-            height: '280px',
+            width: '170px',
+            height: '220px',
             boxShadow: '0 0 0 9999px rgba(0, 0, 0, 0.5)',
           }}
         />
